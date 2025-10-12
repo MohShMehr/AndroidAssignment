@@ -1,69 +1,115 @@
-# Android Assignment
-######  We have an interview, yay
+# 🚀 Android Assignment (Forked & Extended)
 
-### TL;DR
-
-Clone this project, open it in Android Studio and build it.
-
-#### What is this?
-
-This app shows a list of the top three scoring football players in different leagues.
-
-#### What do I do with this?
-
-- Clone it
-- Open it in Android Studio
-- Let it download its dependencies
-- Make the project once (since we have some intermediate classes which need to be generated)
-- Chill :)
-
-#### 📝 Task Description
-In this task, you are expected to design and implement an Android application that displays football player data for all leagues and players provided.
-
-Core Requirements:
-1. Display a list of players
-- Player data must be displayed using pagination.
-- Sorting should be applied across the entire dataset, not just the current page.
-- The method of implementing pagination and sorting — and how they interact — is completely up to you.
-
-2. Follow / Unfollow players
-- The user must be able to follow or unfollow any player.
-- Followed players should be persisted locally, so the follow status remains after closing and reopening the app.
-- How you model and store this state is entirely your decision.
-
-3. Followed players screen
-- The user must be able to view their followed players in a dedicated screen.
-- How this screen is accessed is also up to you (e.g. a button on the main screen, or a tab in bottom navigation).
+> 📦 **Original Repository:** [Android Assignment provided by Miare firm](https://github.com/miare-ir/AndroidAssignment)  
+> This repository is a **fork** of the original Miare firm assignment provided for a technical task.  
+>  
+> 🔧 My version includes:
+> - ✨ **Refactoring**
+> - 🧠 **Architectural improvements**
+> - 🎨 **Modern Jetpack Compose–based UI implementation**
+> - 🧪 **Unit & UI tests** for reliability and scalability
+>  
 
 
+> 🔎 Explore my full implementation in the dedicated branch →  
+> **[`morz_sheikhi`](https://github.com/MohShMehr/AndroidAssignment/tree/morz_sheikhi)**
 
-#### 🔧 Technical Requirements
-The following are mandatory and will be strictly evaluated:
+---
 
-Use Jetpack Compose for UI.
+## 📸 Screenshots
 
-Follow Clean Architecture principles with clear separation of layers (Presentation / Domain / Data).
+<p align="center">
+  <img src="screenshots/splash.png" alt="Splash" width="32%">
+  <img src="screenshots/home_dark.png" alt="Home Screen" width="32%">
+  <img src="screenshots/followed_players.png" alt="Followed Players Screen" width="32%">
+  <img src="screenshots/sort_bt.png" alt="Sort bottom sheet" width="32%">
+</p>
 
-Implement Unit Tests for key components.
+<p align="center">
+  <em>✨ Material 3 · Dark & Dynamic Theme Supported</em>
+</p>
 
-Implement UI Tests for important user flows.
+---
 
-Additional technical decisions — including state management, navigation, persistence, dependency injection, design system, etc. — are entirely up to you.
+## 🧠 About My Implementation
 
-Final UI/UX design is also open to your judgment and will be evaluated based on your analysis and decisions.
+The original codebase served as a starting point.  
+In my version, I **redesigned the architecture**, **migrated the UI to Jetpack Compose**, and added **clean, testable, and reactive layers** to make the project production-ready.
+
+### 🧩 Key Enhancements
+- 🧱 **Clean Architecture** — clear separation of `data`, `domain`, and `presentation`
+- 💉 **Hilt DI** across modules
+- 🧭 **Navigation-Compose** for screen transitions
+- ⚙️ **State management with ViewModel + StateFlow**
+- 🎨 **Jetpack Compose (Material 3)** UI
+- 🔄 **Repository pattern** with Retrofit + Room
+- 🧪 **Testing-ready** use cases & abstractions
+
+---
+
+## 🏗️ Architecture Overview
+
+This project follows a **Multi-Module Clean Architecture** pattern to achieve scalability, modularity, and testability.
+
+```text
+app/
+├── Main application module (entry point, DI setup)
+├── Depends on feature modules
 
 
+core/
+├── data/ → Repositories & data sources
+├── database/ → Room entities & DAO
+├── designsystem/ → Shared UI components & themes
+├── domain/ → UseCases & domain models
+├── model/ → Core shared models
+├── network/ → Retrofit, API interfaces
+└── ui/ → Shared Compose utilities
 
-#### 📌 Evaluation Criteria
-This task is not just about the final result — we're primarily evaluating your approach and thought process:
 
-- Accurate understanding and coverage of the requirements
-- Scalable and flexible architectural design
-- Clean and maintainable code structure
-- Proper state and data flow management
-- Code readability and modularity
-- Smooth, intuitive, and consistent user experience
-- Effective persistence and handling of follow state
-- Meaningful test coverage (both Unit and UI)
-- Quality of documentation and clarity of technical decisions
+feature/
+├── followedplayers/ → Feature module for managing followed players
+└── home/ → Feature module for home screen & list display
+```
+
+
+✅ **Benefits:**
+- Independent **feature modules** for better build times and separation of concerns  
+- **Core modules** shared across all features (network, data, design system, etc.)  
+- Highly **scalable** for adding new features  
+- Easier **testing and maintenance** with clear boundaries  
+- Supports both **unit** and **UI testing**
+
+---
+
+## ⚙️ Tech Stack
+
+| Category | Technologies |
+|-----------|--------------|
+| **Architecture** | Multi-Module · Clean Architecture · MVI |
+| **UI** | Jetpack Compose · Material 3 · Design System Module - Paging 3|
+| **DI** | Hilt |
+| **Async / Reactive** | Kotlin Coroutines · Flow · StateFlow |
+| **Network** | Retrofit · Jakson |
+| **Database** | Room |
+| **Testing** | JUnit · MockK · Espresso · Compose UI Tests |
+| **Build / Tools** | Gradle (KTS) · Version Catalogs · Kotlin DSL |
+| **Modularity** | Core / Feature separation for scalability |
+
+---
+
+> 🧠 The modular structure allows isolated development of each feature while keeping shared logic centralized in `core/`, ensuring both **code reusability** and **build performance optimization**.
+
+## 🌿 Branches
+
+| Branch | Description |
+|-------|-------------|
+| `main` | Original company assignment (unmodified) |
+| [`morz_sheikhi`](https://github.com/MohShMehr/AndroidAssignment/tree/morz_sheikhi) | My improved implementation with Compose + Clean Architecture |
+
+To check out my branch:
+```bash
+git checkout morz_sheikhi
+
+
 
